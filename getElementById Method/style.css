@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#main-heading{
+    /* background-color: lightblue; */
+    height: 80px;
+}
+
+#basket-heading{
+    margin: 10px;
+}
+
+.fruits{
+    margin: 15px;
+    padding: 20px;
+}
