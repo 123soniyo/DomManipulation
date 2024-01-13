@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- +++++++++++ cs code +++++++++++++++++ -->
+    <style>
+        body {
+                font-family: sans-serif;
+                -webkit-font-smoothing: auto;
+                -moz-font-smoothing: auto;
+                -moz-osx-font-smoothing: grayscale;
+                -font-smoothing: auto;
+                text-rendering: optimizeLegibility;
+                font-smooth: always;
+                -webkit-tap-highlight-color: transparent;
+                -webkit-touch-callout: none;
+                }
+
+                h1 {
+                font-size: 1.5rem;
+                }
+
+    </style>
+  </head>
+  <body style="margin: 0">
+    <div id="header" style="padding: 1rem 0; background-color: lightblue">
+      <h1 id="main-heading" style="margin: 0">Fruit Shop</h1>
+    </div>
+    <div>
+      <h2 id="basket-heading">Fruits In Basket</h2>
+      <ul class="fruits">
+        <li class="fruit">Banana</li>
+        <li class="fruit">Apple</li>
+        <li class="fruit">Orange</li>
+        <li class="fruit">Kiwi</li>
+      </ul>
+    </div>
+    <div id="thanks"></div>
+    <!-- +++++++++++++++ js code ++++++++++++ -->
+
+    <script>
+        let firstDiv = document.getElementById("main-heading");
+        let subHeading = document.createElement("h3");
+        subHeading.textContent = "Buy high quality organic fruits online";
+        subHeading.style.fontStyle = "italic";
+        firstDiv.appendChild(subHeading);
+
+        let secondDiv = document.getElementById("basket-heading");
+        let totalFruitsParagraph = document.createElement("p");
+        totalFruitsParagraph.textContent = "Total fruits: 4";
+        totalFruitsParagraph.id = "fruits-total";
+        secondDiv.insertBefore(totalFruitsParagraph, secondDiv.firstChild);
+    </script>
+  </body>
+ 
+
+
+</html>

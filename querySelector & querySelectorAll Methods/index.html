@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector & querySelectorAll Methods</title>
+</head>
+
+    <body style="margin: 0">
+        <div id="header" style="padding: 1rem 0; background-color: lightblue">
+          <h1 id="main-heading" style="margin: 0">Fruit Shop</h1>
+        </div>
+        <div>
+          <h2 id="basket-heading">Fruits In Basket</h2>
+          <ul class="fruits">
+            <li class="fruit">Banana</li>
+            <li class="fruit">Apple</li>
+            <li class="fruit">Orange</li>
+            <li class="fruit">Kiwi</li>
+          </ul>
+        </div>
+        <div id="thanks"></div>
+     
+
+        <!-- ++++++++++ js code ++++++++++++ -->
+
+        <script>
+               const mainHeading=document.querySelector('#main-heading')
+                mainHeading.style.textAlign='end'
+
+                const basketHeading=document.querySelector('#basket-heading')
+                basketHeading.style.color='brown'
+                basketHeading.style.marginLeft='30px'
+
+                const fruits=document.querySelector('.fruits')
+                fruits.style.backgroundColor='grey'
+                fruits.style.padding='30px';
+                fruits.style.margin='30px'
+                fruits.style.width= '50%'
+                fruits.style.boraderRadius='5px'
+                fruits.style.listStyleType='none'
+
+                const fruitItems=document.querySelectorAll('.fruit')
+                for(let i=0;i<fruitItems.length;i++){
+                fruitItems[i].style.backgroundColor='white'
+                fruitItems[i].style.padding='10px';
+                fruitItems[i].style.margin='10px'
+                fruitItems[i].style.boraderRadius='5px'
+                }
+
+        </script>
+      </body>
+    
+
+
+</html>
