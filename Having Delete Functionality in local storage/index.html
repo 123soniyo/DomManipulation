@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 0">
+    <form onsubmit="handleFormSubmit(event)">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="phone">Phone No</label>
+      <input type="tel" name="phone" id="phone" />
+      <button type="submit">Submit</button>
+    </form>
+    <ul id='userList'></ul>
+
+    <!-- +++++++++++++ js code ++++++++++++++ -->
+
+    <script>
+
+                    function handleFormSubmit(event) {
+                    event.preventDefault();
+                    const username = event.target.username.value;
+                    const email = event.target.email.value;
+                    const phone = event.target.phone.value;
+                    const user = {
+                        username,
+                        email,
+                        phone
+                    };
+                    // Store the user details in local storage with the key "User Details"
+                    localStorage.setItem(user.email, JSON.stringify(user));
+                    showscreen(user);
+                    }
+
+                    function showscreen(user) {
+                    const parentele = document.getElementById("userList");
+                    const childele = document.createElement('li');
+                    childele.textContent = user.username + ' - ' + user.email + ' - ' + user.phone;
+
+                    // Create delete button
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', function() {
+                        // Remove user from the user list
+                        parentele.removeChild(childele);
+
+                        // Remove user details from local storage
+                        localStorage.removeItem(user.email);
+                    });
+
+                    // Append delete button to the list item
+                    childele.appendChild(deleteButton);
+
+                    // Append list item to the parent element
+                    parentele.appendChild(childele);
+                    }
+
+                    module.exports = handleFormSubmit;
+    </script>
+  </body>
+ 
+</html>
