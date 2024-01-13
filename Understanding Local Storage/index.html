@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 5px">
+    <form  onsubmit="handleFormSubmit(event)">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="phone">Phone No</label>
+      <input type="tel" name="phone" id="phone" />
+      <button type="submit">Submit</button>
+    </form>
+    <!-- Add Unordered List Element Here -->
+    <ul id="listOfItems"></ul>
+
+
+    <!-- +++++++++++++++ js code ++++++++++++++++ -->
+ 
+ <script> 
+
+    function handleFormSubmit(event){
+        event.preventDefault();
+        
+    
+    const username= event.target.username.value;
+    const email=event.target.email.value;
+    const phone=event.target.phone.value;
+
+    const userDetails={
+        user_name:username,
+        user_email:email,
+        user_phone :phone 
+    }
+
+    // let formatDataJson=JSON.stringify(userDetails);
+
+    // localStorage.setItem('userDetails',formatDataJson)
+
+    localStorage.setItem(userDetails.user_name,JSON.stringify(userDetails))
+
+    showUserDetailsOnScreen(userDetails)
+}
+
+    
+
+    function showUserDetailsOnScreen(userDetails)
+    {
+        const parentElement =document.getElementById('listOfItems')
+
+        parentElement.innerHTML= parentElement.innerHTML +  `<li>${userDetails.user_name} - ${userDetails.user_email}-${userDetails.user_phone}</li>`
+    }
+
+
+
+    // ++++++++++++++++ another way to store the data in local storage ++++++++++++++++
+
+  function myfunc(event) {
+  event.preventDefault();
+
+  let userName = document.getElementById('username').value;
+  let email = document.getElementById('email').value;
+  let phoneNumber = document.getElementById('phone_num').value;
+
+  localStorage.setItem('user_name', userName);
+  localStorage.setItem('user_email', email);
+  localStorage.setItem('user_phoneNumber', phoneNumber);
+}
+
+
+</script> 
+
+
+
+</body> 
+</html>
